@@ -48,7 +48,7 @@ def create_data_csv(list_information_all):
 
 # Lưu dữ liệu, trả về đường link chứa file data mới tạo 
 def save_data_csv(df):
-    path = "dataset/data_new/dataset_new.csv"
+    path = "D:/Github/delivery-time-prediction/dataset/data_new/dataset_new.csv"
     df.to_csv(path) 
     return path
 

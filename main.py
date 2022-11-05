@@ -17,8 +17,8 @@ def main():
     # df = pd.read_csv(create_data.main(path))
 
     # Đọc file dữ liệu có sẵn 
-    df = pd.read_csv("D:/Github/Predict_the_time_of_arrival_for_the_delivery_persons/dataset/data_new/dataset_new.csv")
-    
+    df = pd.read_csv("D:/Github/delivery-time-prediction/dataset/data_new/dataset_new.csv")
+    print(df[:10])
     # Pre-processing 
 
     # EDA + deploy 
