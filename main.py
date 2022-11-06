@@ -8,7 +8,7 @@ def main():
     # Tổng hợp tất cả dữ liệu (file .txt) vào 1 file .csv  
     # Dữ liệu lưu tại file dataset.csv
 
-    # path = "D:/Github/Predict_the_time_of_arrival_for_the_delivery_persons/dataset/data"
+    # path = "D:/Github/delivery-time-prediction/dataset/data"
     # path_save = "D:/Github/delivery-time-prediction/dataset/data_new/dataset.csv"
     # os.chdir(path)
     # create_data.main(path, path_save)
