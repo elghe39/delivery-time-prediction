@@ -8,7 +8,10 @@ def main():
     df = pd.read_csv(os.path.abspath("../delivery-time-prediction/dataset/dataset.csv"))
     # Clean data
     path_save_new = os.path.abspath("../delivery-time-prediction/dataset/dataset_clean.csv")
-    pre_processing.main(df, path_save_new)
+    #pre_processing.main(df, path_save_new)
+    df = pd.read_csv(path_save_new)
+    print(df[-10:])
+
 
     # EDA + deploy
     # Nhóm sẽ tiến hành trên file dataset_clean.csv
