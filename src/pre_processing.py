@@ -66,6 +66,12 @@ def drop_missing_big_data(df):
     for i in range(len(df)):
         if sum(np.array(df[i:i+1].isnull().sum())) > 3:
             df = df.drop(df[i:i+1].index)
+    # Xóa những hàng chứa giá trị lỗi 
+    df = df.drop(df[df['Restaurant_latitude']<0].index)
+    df = df.drop(df[df['Restaurant_longitude']<0].index)
+    df = df.drop(df[df['Delivery_location_latitude']<0].index)
+    df = df.drop(df[df['Delivery_location_longitude']<0].index)
+    df = df.drop(df[df['Delivery_person_ratings'] > 5].index)
 
     # Tạo lại cột index
     df["Index"] = 0
@@ -124,6 +130,8 @@ def filling_missing_data(df):
             continue
         else:
             df['Time_order'][i] = df['Time_order_picked'][i] - random.choice(timerange)
+    
+    df["Multiple_deliveries"] = df["Multiple_deliveries"].replace(to_replace = 0, value= 1)
     
     return df
 
