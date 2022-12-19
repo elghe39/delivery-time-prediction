@@ -102,13 +102,20 @@ def create_feature_distance(df):
     return df
 
 
-# Chỉnh sửa 2 feature 'Time_order' và 'Time_order_picked'
+# Chỉnh sửa 2 feature 'Time_order' và 'Time_order_picked', Thêm feature Hour, WeekDay
 def edit_time(df):
     df['Time_order'] = df['Order_date'] + ' ' + df['Time_order']
     df['Time_order_picked'] = df['Order_date'] + ' ' + df['Time_order_picked']
+
     for i in range(len(df)):
         df['Time_order'][i] = date_time(df['Time_order'][i])
         df['Time_order_picked'][i] = date_time(df['Time_order_picked'][i])
+
+    df['Time_order'] = pd.to_datetime(df['Time_order'])
+    df['Time_order_picked'] = pd.to_datetime(df['Time_order_picked'])
+    df['Hour_order'] = df['Time_order'].dt.hour
+    df['Hour_picked'] = df['Time_order_picked'].dt.hour
+    df['WeekDay'] = df['Time_order'].dt.weekday
     return df
 
 # Điền các giá trị khuyết: Có 8 feature chứa giá trị khuyết
