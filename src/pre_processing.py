@@ -73,6 +73,12 @@ def drop_missing_big_data(df):
     df = df.drop(df[df['Delivery_location_longitude']<=0].index)
     df = df.drop(df[df['Delivery_person_ratings'] > 5].index)
 
+    # Xóa giá trị outlier 
+    df = df[df['Delivery_person_Age'] != 15 ]
+    df = df[df['Vehicle_condition'] != 3 ]
+    df = df[df['Type_of_vehicle'] != 'bicycle']
+    df = df[df['City'] != 'Semi-Urban']
+    df['Type_of_vehicle'].replace('electric_scooter','scooter',inplace=True)
     # Tạo lại cột index
     df["Index"] = 0
     for i in range(len(df)):
