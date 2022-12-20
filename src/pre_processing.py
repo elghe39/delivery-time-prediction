@@ -120,8 +120,17 @@ def edit_time(df):
     df['Time_order'] = pd.to_datetime(df['Time_order'])
     df['Time_order_picked'] = pd.to_datetime(df['Time_order_picked'])
     df['Hour_order'] = df['Time_order'].dt.hour
-    df['Hour_picked'] = df['Time_order_picked'].dt.hour
     df['WeekDay'] = df['Time_order'].dt.weekday
+    df['Session'] = df['Hour_order']
+    for i in range(len(df)):
+        if df['Session'][i] >= 0 and df['Session'][i] < 6:
+            df['Session'][i] = 'Early morning'
+        elif df['Session'][i] >= 6 and df['Session'][i] < 12:
+            df['Session'][i] = 'Morning'
+        elif df['Session'][i] >= 12 and df['Session'][i] < 18:
+            df['Session'][i] = 'Afternoon'
+        else:
+            df['Session'][i] = 'Night'
     return df
 
 # Điền các giá trị khuyết: Có 8 feature chứa giá trị khuyết
