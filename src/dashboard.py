@@ -144,7 +144,7 @@ def build_tab_1():
                             style={'width': '600px', 'margin-top': '20px'},
                             children=[
                                 dcc.Graph(
-                                    figure=fig_restaurant_mapbox,
+                                    figure=fig_restaurant_mapbox, style={'height': '470px'}
                                 ),
                             ]
                         ),
@@ -152,7 +152,7 @@ def build_tab_1():
                             style={'width': '600px', 'margin-top': '20px'},
                             children=[
                                 dcc.Graph(
-                                    figure=fig_delivery_mapbox,
+                                    figure=fig_delivery_mapbox, style={'height': '470px'}
                                 ),
                             ]
                         ),
@@ -160,7 +160,7 @@ def build_tab_1():
                             style={'width': '750px', 'margin-top': '20px'},
                             children=[
                                 dcc.Graph(
-                                    figure=fig_target_dispersion,
+                                    figure=fig_target_dispersion, style={'height': '470px'}
                                 ),
                             ]
                         )
@@ -205,13 +205,13 @@ def build_tab_2():
                         html.Div(
                             style={'display': 'flex'},
                             children=[
-                                html.Div(style={'width': '430px'},
+                                html.Div(style={'width': '480px'},
                                          children=[dcc.Graph(
-                                             figure=fig_hour_order, style={'height': '330px'}
+                                             figure=fig_hour_order, style={'height': '310px'}
                                          )]),
-                                html.Div(style={'width': '500px', 'margin-left': '-30px'},
+                                html.Div(style={'width': '520px', 'margin-left': '-30px'},
                                          children=[dcc.Graph(
-                                             figure=fig, style={'height': '330px'}
+                                             figure=fig, style={'height': '320px'}
                                          )])
                             ]
                         ),
@@ -220,18 +220,18 @@ def build_tab_2():
                             children=[
                                 html.Div(style={'width': '430px'},
                                          children=[dcc.Graph(
-                                             figure=fig_road_traffic_density, style={'height': '330px'}
+                                             figure=fig_road_traffic_density, style={'height': '310px'}
                                          )]),
                                 html.Div(style={'width': '500px', 'margin-left': '-30px'},
                                          children=[dcc.Graph(
-                                             figure=fig_box, style={'height': '330px'}
+                                             figure=fig_box, style={'height': '320px'}
                                          )])
                             ]
                         ),
                     ]
                 ),
                 html.Div(
-                    style={'display': 'flex', 'justify-content': 'space-between'},
+                    style={'display': 'flex', 'justify-content': 'space-between', 'margin-top': '-30px', 'margin-right': '150px'},
                     children=[
                         html.Div(
                             children=[
@@ -241,38 +241,42 @@ def build_tab_2():
                                         html.Div(
                                             style={'width': '500px'},
                                             children=[dcc.Graph(
-                                                figure=fig_pivot, style={'height': '330px'}
+                                                figure=fig_pivot, style={'height': '310px'}
                                             )]
                                         ),
                                         html.Div(
                                             style={'width': '550px'},
                                             children=[dcc.Graph(
-                                                figure=fig_box_delivery_person_ratings, style={'height': '330px'}
+                                                figure=fig_box_delivery_person_ratings, style={'height': '310px'}
                                             )]
                                         )
                                     ]
                                 ),
                                 html.Div(
-                                    style={'display': 'flex', 'width': '1100px'},
+                                    style={'display': 'flex', 'width': '1100px', 'margin-top': '-30px'},
                                     children=[
                                         html.Div(
                                             style={'width': '500px'},
                                             children=[dcc.Graph(
-                                                figure=fig_multiple_deliveries, style={'height': '330px'}
+                                                figure=fig_multiple_deliveries, style={'height': '310px'}
                                             )]
                                         ),
                                         html.Div(
                                             style={'width': '550px'},
                                             children=[dcc.Graph(
-                                                figure=fig_box_multiple_deliveries, style={'height': '330px'}
+                                                figure=fig_box_multiple_deliveries, style={'height': '310px'}
                                             )]
                                         )
                                     ]
                                 )
                             ]
                         ),
-                        dcc.Graph(
-                            figure=fig_corr_heatmap, style={'height': '600px'}
+                        html.Div(
+                            children=[
+                                dcc.Graph(
+                                    figure=fig_corr_heatmap, style={'height': '580px'}
+                                )
+                            ]
                         )
                     ]
                 )
@@ -283,7 +287,6 @@ def build_tab_2():
 
 app.layout = html.Div(
     id="big-app-container",
-    # style={'background-color': 'gray'},
     children=[
         html.Div(
             id="app-container",
